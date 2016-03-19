@@ -1,0 +1,22 @@
+{
+  "name": "isa-bozeman",
+  "description": "Official website of ISA Bozeman",
+  "main": "index.html",
+  "authors": [
+    "Rishad Bharucha <rb2102@gmail.com> (https://rishadbharucha.com)"
+  ],
+  "license": "MIT",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "homepage": "http://montana.edu/isa",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

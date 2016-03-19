@@ -2,7 +2,7 @@
   "name": "isa-bozeman",
   "version": "1.0.0",
   "description": "Official website of ISA Bozeman",
-  "main": "js/main.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
