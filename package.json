@@ -1,14 +1,14 @@
 {
-  "name": "isa-bozeman",
+  "name": "isabzn",
   "version": "1.0.0",
-  "description": "Official website of ISA Bozeman",
+  "description": "The official website of the Indian Student Association - Bozeman",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rishadbharucha/isa-bozeman.git"
+    "url": "git+https://github.com/isabzn/frontend.git"
   },
   "author": "Rishad Bharucha <rb2102@gmail.com> (https://rishadbharucha.com)",
   "license": "MIT",
