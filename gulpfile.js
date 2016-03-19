@@ -11,10 +11,17 @@ var del = require('del'),
         'sass': [
             'assets/sass/main.scss'
         ],
-        'javascript': []
+        'javascript': [
+            'assets/js/jquery.min.js',
+            'assets/js/jquery.dropotron.min.js',
+            'assets/js/skel.min.js',
+            'assets/js/util.js',
+            'assets/js/main.js'
+        ]
     },
 
     output = {
+        'javascript': 'assets/js',
         'stylesheets': 'assets/css',
         'html': '*.html'
     };
@@ -28,7 +35,7 @@ gulp.task('clean', function() {
 });
 
 // Build assets
-gulp.task('build', ['build-css']);
+gulp.task('build', ['build-css', 'build-js']);
 
 // Compile SCSS files
 gulp.task('build-css', function() {
