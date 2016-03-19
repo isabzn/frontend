@@ -609,6 +609,7 @@
 				float: left;
 				line-height: 4.5em;
 				padding-left: 1.5em;
+				padding-top: 6.5em;
 
 				a, span {
 					@include vendor('transition', 'background-color .25s ease-in-out');
