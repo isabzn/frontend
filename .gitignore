@@ -20,4 +20,3 @@ node_modules
 ### CSS ###
 .sass-cache
 *.css.map
-assets/css/main.css
