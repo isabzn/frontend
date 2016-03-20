@@ -2,6 +2,7 @@
 var del = require('del'),
     gulp = require('gulp'),
     concat = require('gulp-concat'),
+    nunjucksRender = require('gulp-nunjucks-render'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     uglify = require('gulp-uglify'),
@@ -56,6 +57,17 @@ gulp.task('build-js', function() {
         .pipe(concat('app.js'))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(output.javascript));
+});
+
+// Use nunjucks templating engine
+gulp.task('nunjucks', function() {
+    nunjucksRender.nunjucks.configure(['app/templates/']);
+    // Gets .html and .nunjucks files in pages
+    return gulp.src('app/pages/**/*.+(html|nunjucks)')
+        // Renders template with nunjucks
+        .pipe(nunjucksRender())
+        // output files in root folder
+        .pipe(gulp.dest('.'))
 });
 
 // Refresh the browser when changes are made to the watch files
