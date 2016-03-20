@@ -51,7 +51,7 @@ gulp.task('clean', function() {
 gulp.task('build', ['images', 'sass', 'js', 'pages', 'fonts', 'fontawesome']);
 
 // Compile SCSS files
-gulp.task('sass', function() {
+gulp.task('sass', ['clean'], function() {
     return gulp.src(input.sass)
         .pipe(sourcemaps.init())
         .pipe(sass({
@@ -63,7 +63,7 @@ gulp.task('sass', function() {
 });
 
 // Concat JavaScript files
-gulp.task('js', function() {
+gulp.task('js', ['clean'], function() {
     return gulp.src(input.javascript)
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
@@ -71,7 +71,7 @@ gulp.task('js', function() {
         .pipe(gulp.dest(output.javascript));
 });
 
-gulp.task('images', function() {
+gulp.task('images', ['clean'], function() {
     return gulp.src(input.images)
         // Caching images that ran through imagemin
         .pipe(cache(imagemin({
@@ -81,7 +81,7 @@ gulp.task('images', function() {
 });
 
 // Use nunjucks templating engine
-gulp.task('pages', function() {
+gulp.task('pages', ['clean'], function() {
     return gulp.src(input.pages)
         .pipe(nunjucksRender({
             path: [input.templates]
@@ -90,29 +90,29 @@ gulp.task('pages', function() {
 });
 
 // Copy fonts to production folder
-gulp.task('fonts', function() {
+gulp.task('fonts', ['clean'], function() {
     return gulp.src(input.fonts)
         .pipe(gulp.dest(output.fonts));
 });
 
 // Copy fonts to production folder
-gulp.task('fontawesome', function() {
+gulp.task('fontawesome', ['clean'], function() {
     return gulp.src(input.fontawesome)
         .pipe(gulp.dest(output.stylesheets));
 });
 
 // Refresh the browser when changes are made to the watch files
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', ['clean'], function() {
     browserSync({
         server: {
-            baseDir: "./"
+            baseDir: "./dist"
         },
         files: [output.html, output.stylesheets, output.javascript]
     });
 });
 
 // Watch these files for changes and run the task on update
-gulp.task('watch', function() {
+gulp.task('watch', ['clean'], function() {
     gulp.watch(input.sass, ['sass']);
     gulp.watch(input.javascript, ['js']);
     gulp.watch(input.sass, ['pages']);
