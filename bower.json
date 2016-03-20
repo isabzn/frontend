@@ -18,9 +18,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "devDependencies": {
-    "jquery": "^2.2.2",
-    "font-awesome": "fontawesome#^4.5.0"
-  }
+  ]
 }
