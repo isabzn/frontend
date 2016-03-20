@@ -24,8 +24,8 @@ var del = require('del'),
         'images': 'app/assets/images/**/*.+(png|jpg|jpeg|gif|svg)',
         'fonts': 'app/assets/fonts/**/*',
         'fontawesome': 'app/assets/css/font-awesome.min.css',
-        'pages': 'app/pages/*.html',
-        'templates': 'app/templates/'
+        'pages': 'app/pages/**/*.html',
+        'templates': 'app/pages/'
     },
 
     output = {
@@ -37,14 +37,14 @@ var del = require('del'),
         'html': 'dist/*.html'
     },
 
-    clean = 'dist';
+    clean = ['dist/**/*.*'];
 
 // Run the watch task when gulp is called without arguments
 gulp.task('default', ['build', 'watch', 'browser-sync']);
 
 // Clean the build directory
 gulp.task('clean', function() {
-    return del([clean]);
+    return del(clean);
 });
 
 // Build assets
