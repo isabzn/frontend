@@ -25,7 +25,7 @@ var del = require('del'),
         'fonts': 'app/assets/fonts/**/*',
         'fontawesome': 'app/assets/css/font-awesome.min.css',
         'pages': 'app/pages/**/*.html',
-        'templates': 'app/pages/'
+        'templates': 'app/templates/'
     },
 
     output = {
