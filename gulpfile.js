@@ -40,7 +40,7 @@ var del = require('del'),
     clean = 'dist';
 
 // Run the watch task when gulp is called without arguments
-gulp.task('default', ['clean', 'build', 'watch', 'browser-sync']);
+gulp.task('default', ['build', 'watch', 'browser-sync']);
 
 // Clean the build directory
 gulp.task('clean', function() {
@@ -48,10 +48,10 @@ gulp.task('clean', function() {
 });
 
 // Build assets
-gulp.task('build', ['images', 'sass', 'js', 'pages', 'fonts', 'fontawesome']);
+gulp.task('build', ['clean', 'images', 'sass', 'js', 'pages', 'fonts', 'fontawesome']);
 
 // Compile SCSS files
-gulp.task('sass', ['clean'], function() {
+gulp.task('sass', function() {
     return gulp.src(input.sass)
         .pipe(sourcemaps.init())
         .pipe(sass({
@@ -63,7 +63,7 @@ gulp.task('sass', ['clean'], function() {
 });
 
 // Concat JavaScript files
-gulp.task('js', ['clean'], function() {
+gulp.task('js', function() {
     return gulp.src(input.javascript)
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
@@ -71,7 +71,7 @@ gulp.task('js', ['clean'], function() {
         .pipe(gulp.dest(output.javascript));
 });
 
-gulp.task('images', ['clean'], function() {
+gulp.task('images', function() {
     return gulp.src(input.images)
         // Caching images that ran through imagemin
         .pipe(cache(imagemin({
@@ -81,7 +81,7 @@ gulp.task('images', ['clean'], function() {
 });
 
 // Use nunjucks templating engine
-gulp.task('pages', ['clean'], function() {
+gulp.task('pages', function() {
     return gulp.src(input.pages)
         .pipe(nunjucksRender({
             path: [input.templates]
@@ -90,19 +90,19 @@ gulp.task('pages', ['clean'], function() {
 });
 
 // Copy fonts to production folder
-gulp.task('fonts', ['clean'], function() {
+gulp.task('fonts', function() {
     return gulp.src(input.fonts)
         .pipe(gulp.dest(output.fonts));
 });
 
 // Copy fonts to production folder
-gulp.task('fontawesome', ['clean'], function() {
+gulp.task('fontawesome', function() {
     return gulp.src(input.fontawesome)
         .pipe(gulp.dest(output.stylesheets));
 });
 
 // Refresh the browser when changes are made to the watch files
-gulp.task('browser-sync', ['clean'], function() {
+gulp.task('browser-sync', function() {
     browserSync({
         server: {
             baseDir: "./dist"
@@ -112,8 +112,9 @@ gulp.task('browser-sync', ['clean'], function() {
 });
 
 // Watch these files for changes and run the task on update
-gulp.task('watch', ['clean'], function() {
+gulp.task('watch', function() {
+    gulp.watch(input.images, ['images']);
     gulp.watch(input.sass, ['sass']);
     gulp.watch(input.javascript, ['js']);
-    gulp.watch(input.sass, ['pages']);
+    gulp.watch(input.pages, ['pages']);
 });
