@@ -24,7 +24,7 @@ var del = require('del'),
         'images': 'app/assets/images/**/*.+(png|jpg|jpeg|gif|svg)',
         'fonts': 'app/assets/fonts/**/*',
         'fontawesome': 'app/assets/css/font-awesome.min.css',
-        'pages': 'app/pages/*.nunjucks',
+        'pages': 'app/pages/*.html',
         'templates': 'app/templates/'
     },
 
