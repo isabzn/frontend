@@ -12,8 +12,10 @@
 
 <body class="homepage">
     <div id="page-wrapper">
+        {% include "partials/header.nunjucks" %}
         <!-- You write code for this content block in another file -->
         {% block content %} {% endblock %}
+        {% include "partials/footer.nunjucks" %}
     </div>
 
     <!-- Scripts -->
