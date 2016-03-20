@@ -19,7 +19,8 @@ var del = require('del'),
             'app/assets/js/jquery.dropotron.min.js',
             'app/assets/js/skel.min.js',
             'app/assets/js/util.js',
-            'app/assets/js/main.js'
+            'app/assets/js/main.js',
+            'app/assets/js/nav-active.js'
         ],
         'images': 'app/assets/images/**/*.+(png|jpg|jpeg|gif|svg)',
         'fonts': 'app/assets/fonts/**/*',
