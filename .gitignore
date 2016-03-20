@@ -20,3 +20,6 @@ node_modules
 ### CSS ###
 .sass-cache
 *.css.map
+
+# Production files
+dist
